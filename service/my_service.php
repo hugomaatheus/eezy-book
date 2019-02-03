@@ -34,6 +34,30 @@
             return $result;     
         }
 
+        public function login($email, $password) {
+            $c = Connection::getConnection();
+
+            $query = "SELECT * FROM users WHERE email = :email AND password = :password";
+            $result = $c->prepare($query);
+            $result->execute(
+                array (
+                    'email' => $_POST['email'],
+                    'password' => $_POST['password']
+                )
+            );                                       
+
+            $users = $result->fetchAll( PDO::FETCH_ASSOC);            
+
+            return $users;
+        }
+
+        public function isLoggedIn() {
+            if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+                return false;
+            }
+            return true;
+        }
+
     }
 
 ?>

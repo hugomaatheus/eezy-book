@@ -1,5 +1,7 @@
 <html>
 
+<?php session_start(); ?>
+
 <head>
     <meta charset="UTF-8">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -7,12 +9,14 @@
     <title>eezy-book</title>
 </head>
 
+<?php require_once '../../service/my_service.php'; ?>
+
 <body>
     <div class="container">
         <div class="jumbotron bg-light border border-secondary">
             <div class="card border border-primary">
                 <div class="card-body">
-                    <h5 class="card-title">Seus livros</h5>
+                    <h5 class="card-title">Olá, <?php echo $_SESSION['user_name'] ?> , seus livros</h5>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
