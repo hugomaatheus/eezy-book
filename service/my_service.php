@@ -13,10 +13,10 @@
         }
 
         //Cria um novo livro
-        public function createBook($name, $author, $markedPage, $status) {
+        public function createBook($name, $author, $markedPage, $status, $user_id) {
             $c = Connection::getConnection();              
 
-            $c->exec("INSERT INTO books (name, author, markedPage, status) values ('$name', '$author', '$markedPage', '$status')");
+            $c->exec("INSERT INTO books (name, author, markedPage, status, user_id) values ('$name', '$author', '$markedPage', '$status', '$user_id')");
         }
 
         public function deleteBook($id) {
@@ -34,6 +34,17 @@
             return $result;     
         }
 
+        public function showById($id) {
+            $c = Connection::getConnection();
+
+            $result = $c->query("SELECT * FROM books WHERE user_id = $id");
+
+            $books = $result->fetchAll( PDO::FETCH_ASSOC );
+            return $books;
+            
+        }
+
+        //Realiza o login do usuário
         public function login($email, $password) {
             $c = Connection::getConnection();
 
@@ -47,7 +58,6 @@
             );                                       
 
             $users = $result->fetchAll( PDO::FETCH_ASSOC);            
-
             return $users;
         }
 

@@ -32,7 +32,7 @@
                             <?php 
                                 require_once '../../service/my_service.php';
                                 $s = new MyService();
-                                $result = $s->showAllBooks();                        
+                                $result = $s->showById($_SESSION['user_id']);                        
                             ?>
                             <?php foreach($result as $line) { ?>
                                 <tr>
@@ -47,7 +47,11 @@
                                 </tr>    
                             <?php } ?>
                         </tbody>
-                    </table>                    
+                    </table>
+                    <div class="btn-group">
+                        <a href="../../controller/logoutusercontroller.php" class="btn btn-danger">Sair</a>                    
+                        <a href="../book/form.php" class="btn btn-primary">Adicionar livro</a>
+                    </div>
                 </div>
             </div>
         </div>

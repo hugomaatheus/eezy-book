@@ -1,5 +1,7 @@
 <html>
 
+<?php session_start(); ?>
+
 <head>
     <meta charset="UTF-8">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -12,7 +14,7 @@
         <div class="card border">
             <div class="card-body">
                 <form action="../../controller/createbookcontroller.php" method="post">
-                    <input type="hidden"name="user_id" value="<?php  ?>">
+                    <input type="hidden"name="user_id" value="<?php echo $_SESSION['user_id'] ?>">
                     <div class="form-group">
                         <label>Nome:</label>
                         <input class="form-control" type="text" placeholder="Nome do livro" name="name">
