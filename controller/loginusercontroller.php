@@ -29,4 +29,4 @@
 
     echo $_SESSION['user_name'];
 
-    header('Location: ../view/book/books.php');
+    header('Location: ../view/menu/index.php');

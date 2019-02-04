@@ -14,7 +14,7 @@
         <div class="jumbotron bg-light border border-secondary">
             <div class="card border border-primary">
                 <div class="card-body">
-                    <h5 class="card-title">Olá, <?php echo $_SESSION['user_name'] ?>, seus livros</h5>
+                    <h5 class="card-title">Olá, <?php echo $_SESSION['user_name'] ?>, seus mangás</h5>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
@@ -23,6 +23,7 @@
                                 <th>autor</th>
                                 <th>gênero</th>
                                 <th>página</th>
+                                <th>volume</th>
                                 <th>status</th>
                                 <th>opções</th>
                             </tr>
@@ -31,7 +32,7 @@
                             <?php 
                                 require_once '../../service/my_service.php';
                                 $s = new MyService();
-                                $result = $s->showBookUser($_SESSION['user_id']);                                 
+                                $result = $s->showMangaUser($_SESSION['user_id']);                                   
                             ?>
                             <?php foreach($result as $line) { ?>
                                 <tr>
@@ -40,9 +41,10 @@
                                     <th> <?php echo $line['author']; ?> </th>
                                     <th> <?php echo $line['category']; ?> </th>
                                     <th> <?php echo $line['markedPage']; ?> </th>
+                                    <th> <?php echo $line['markedT']; ?> </th>
                                     <th> <?php echo $line['status']; ?> </th>
                                     <th>
-                                        <a href="../../controller/deletebookcontroller.php?id=<?php echo $line['id'] ?>" >Deletar</a>
+                                        <a href="../../controller/deletemangacontroller.php?id=<?php echo $line['id'] ?>" >Deletar</a>
                                         <a href="edit.php?id=<?php echo$line['id'] ?>" >Editar</a>
                                     </th>
                                 </tr>    
@@ -51,7 +53,7 @@
                     </table>
                     <div class="btn-group">
                         <a href="../../controller/logoutusercontroller.php" class="btn btn-danger">Sair</a>                    
-                        <a href="../book/form.php" class="btn btn-primary">Adicionar livro</a>
+                        <a href="../manga/form.php" class="btn btn-primary">Adicionar mangá</a>
                     </div>
                 </div>
             </div>

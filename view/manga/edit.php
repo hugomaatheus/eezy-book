@@ -13,19 +13,20 @@
     <div class="container">
         <div class="card border">
             <div class="card-body">
-                <form action="../../controller/editbookcontroller.php" method="post">
+                <form action="../../controller/editmangacontroller.php" method="post">
                     <?php 
                         require_once '../../service/my_service.php';
                         $s = new MyService();
                         $id = $_REQUEST['id'];
-                        $result = $s->showBookById($id);
+                        $result = $s->showMangaById($id);
                         $name = $result['name'];
                         $author = $result['author'];
                         $category = $result['category'];
                         $markedPage = $result['markedPage'];
+                        $markedT = $result['markedT'];
                         $status = $result['status'];
                     ?>
-                    <input type="hidden" name="book_id" value="<?php echo $id ?>" >                    
+                    <input type="hidden" name="manga_id" value="<?php echo $id ?>" >                    
                     <div class="form-group">
                         <label>Nome:</label>
                         <input class="form-control" type="text" name="name" value="<?php echo $name ?>">
@@ -38,12 +39,17 @@
 
                     <div class="form-group">
                         <label>Gênero:</label>
-                        <input class="form-control" type="text" name="category" value="<?php echo $category ?>">
+                        <input class="form-control" type="text" name="category" value="<?php echo $acategory ?>">
                     </div>
 
                     <div class="form-group">
                         <label>Página:</label>
                         <input class="form-control" type="number" name="markedPage" value="<?php echo $markedPage ?>">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Página:</label>
+                        <input class="form-control" type="number" name="markedT" value="<?php echo $markedT ?>">
                     </div>
 
                     <div class="form-group">
