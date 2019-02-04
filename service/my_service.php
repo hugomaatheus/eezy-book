@@ -19,6 +19,24 @@
             $c->exec("INSERT INTO books (name, author, markedPage, status, user_id) values ('$name', '$author', '$markedPage', '$status', '$user_id')");
         }
 
+        //Edita um livro
+        public function edit_book($name, $author, $markedPage, $status, $book_id) {
+            $c = Connection::getConnection();
+
+            echo $author;
+            $my_query = $c->prepare("UPDATE books SET name = :name, author = :author, markedPage = :markedPage, status = :status WHERE id = :book_id");
+            $my_query->execute(
+                array (
+                    ':name' => $name,
+                    ':author' => $author,
+                    ':markedPage' => $markedPage,
+                    ':status' => $status,
+                    ':book_id' => $book_id
+                )
+            );
+        }
+        
+        //Apaga um livro
         public function deleteBook($id) {
             $c = Connection::getConnection();
 
@@ -34,12 +52,24 @@
             return $result;     
         }
 
-        public function showById($id) {
+        //Mostra um livro de determinado id
+        public function showBookById($id) {
             $c = Connection::getConnection();
 
-            $result = $c->query("SELECT * FROM books WHERE user_id = $id");
+            $result = $c->query("SELECT * FROM books WHERE id = $id");
 
-            $books = $result->fetchAll( PDO::FETCH_ASSOC );
+            $books = $result->fetch();
+            return $books;
+            
+        }
+
+        //Mostra livros do usuário
+        public function showBookUser($user_id) {
+            $c = Connection::getConnection();
+
+            $result = $c->query("SELECT * FROM books WHERE id = $user_id");
+
+            $books = $result->fetchAll(PDO::FETCH_ASSOC);
             return $books;
             
         }

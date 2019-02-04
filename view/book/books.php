@@ -32,7 +32,7 @@
                             <?php 
                                 require_once '../../service/my_service.php';
                                 $s = new MyService();
-                                $result = $s->showById($_SESSION['user_id']);                        
+                                $result = $s->showBookUser($_SESSION['user_id']);                                 
                             ?>
                             <?php foreach($result as $line) { ?>
                                 <tr>
@@ -43,6 +43,7 @@
                                     <th> <?php echo $line['status']; ?> </th>
                                     <th>
                                         <a href="../../controller/deletebookcontroller.php?id=<?php echo $line['id'] ?>" >Deletar</a>
+                                        <a href="edit.php?id=<?php echo$line['id'] ?>" >Editar</a>
                                     </th>
                                 </tr>    
                             <?php } ?>
