@@ -1,14 +1,17 @@
+<!doctype html>
 <html>
 
 <?php session_start(); ?>
 
 <head>
     <meta charset="UTF-8">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <link href="../../resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../resources/css/my-style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <script src="../../resources/js/bootstrap.min.js" type="text/javascript"></script> 
     <title>Formulário</title>
 </head>
-
+<?php include '../component/my_navbar.html' ?>
 <body>
     <div class="container">
         <div class="card border">
@@ -40,7 +43,14 @@
                         <input class="form-control" type="text" placeholder="Ainda está lendo o livro? Ou parou? Ou será que já leu? Fala pra nós :D" name="status">
                     </div>
 
-                    <button class="btn btn-primary btn-sn" type="submit">enviar</button>
+                    <div class="btn-group">
+                        <div class="border">
+                            <button class="btn btn-primary raised" type="submit">enviar</button>
+                        </div>   
+                        <div class="border">
+                            <a class="btn btn-danger raised" onClick="JavaScript: window.history.back();">Voltar</a>
+                        </div>                     
+                    </div>
                 </form>
             </div>
         </div>

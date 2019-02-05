@@ -7,7 +7,7 @@
     $password = isset($_POST['password']) ? $_POST['password'] : '';
     
     if (empty($email) || empty($password)) {
-        echo "Informe email e senha";
+        header('Location: ../view/user/login.html');
         exit;
     }
 
@@ -15,7 +15,7 @@
     $users = $s->login($email, $password); 
 
     if (count($users) <= 0) {
-        echo "Email ou senha incorretos";
+        header('Location: ../view/user/login.html');
         exit;
     }
     
@@ -26,7 +26,4 @@
     $_SESSION['logged_in'] = true;
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['user_name'] = $user['name'];
-
-    echo $_SESSION['user_name'];
-
     header('Location: ../view/menu/index.php');

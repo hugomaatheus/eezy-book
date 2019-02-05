@@ -13,8 +13,10 @@
             $status = $_POST["status"];
 
             $m = new MyService();
-            $m->createBook($name, $author, $category, $markedPage, $status, $user_id);            
-            header('Location: ../view/book/books.php');
+            if($m->isLoggedIn) {                
+                $m->createBook($name, $author, $category, $markedPage, $status, $user_id);            
+                header('Location: ../view/book/books.php');
+            } else header('Location: ../view/user/login.html');
         }        
 
     }
