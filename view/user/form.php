@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
 
+<?php session_start(); ?>
+
 <head>
     <meta charset="UTF-8">
     <link href="../../resources/css/bootstrap.min.css" rel="stylesheet">
@@ -14,7 +16,7 @@
     <div class="container">
         <div class="card border">
             <div class="card-body">
-                <form action="../../controller/createusercontroller.php" method="post">
+                <form action="../../controller/createusercontroller.php" method="post">                
                     <div class="form-group">
                         <label>Nome:</label>
                         <input class="form-control" type="text" placeholder="Seu nome" name="name">

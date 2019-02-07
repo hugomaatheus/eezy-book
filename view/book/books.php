@@ -17,7 +17,7 @@
         <div class="jumbotron bg-light border border-secondary">
             <div class="card border border-primary">
                 <div class="card-body">
-                    <h5 class="card-title">Olá, <?php echo $_SESSION['user_name'] ?>, seus livros</h5>
+                    <h5 class="card-title">Olá, <?php echo $_SESSION['user_name']  ?>, seus livros</h5>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
@@ -34,7 +34,7 @@
                             <?php 
                                 require_once '../../service/my_service.php';
                                 $s = new MyService();
-                                $result = $s->showBookUser($_SESSION['user_id']);                                 
+                                $result = $s->showBookUser($_SESSION['user_id']);                                
                             ?>
                             <?php foreach($result as $line) { ?>
                                 <tr>
@@ -45,8 +45,8 @@
                                     <th> <?php echo $line['markedPage']; ?> </th>
                                     <th> <?php echo $line['status']; ?> </th>
                                     <th>                                        
-                                        <a class="btn btn-primary raised" href="edit.php?id=<?php echo$line['id'] ?>" >Editar</a>
-                                        <a class="btn btn-danger raised" href="../../controller/deletebookcontroller.php?id=<?php echo $line['id'] ?>" >Deletar</a>
+                                        <a class="btn btn-primary btn-xs raised" href="edit.php?id=<?php echo$line['id'] ?>" >Editar</a>
+                                        <a class="btn btn-danger btn-xs raised" href="../../controller/deletebookcontroller.php?id=<?php echo $line['id'] ?>" >Deletar</a>
                                     </th>
                                 </tr>    
                             <?php } ?>
@@ -54,7 +54,7 @@
                     </table>
                     <div class="btn-group">                   
                         <div class="border">
-                            <a href="../book/form.php" class="btn btn-primary raised">Adicionar livro</a>
+                            <a href="../book/form.php" class="btn btn-primary btn-xs raised">Adicionar livro</a>
                         </div>   
                         <div class="border">
                             <button class="btn btn-danger raised" onClick="JavaScript: window.history.back();">Voltar</button>

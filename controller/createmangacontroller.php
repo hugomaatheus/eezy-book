@@ -12,10 +12,13 @@
             $markedPage = $_POST["markedPage"];
             $markedT = $_POST["markedT"];
             $status = $_POST["status"];
+            $logged = $_POST["logged"];
 
             $m = new MyService();
-            $m->createManga($name, $author, $category, $markedPage, $markedT, $status, $user_id);            
-            header('Location: ../view/manga/mangas.php');
+            if($logged) {
+                $m->createManga($name, $author, $category, $markedPage, $markedT, $status, $user_id);            
+                header('Location: ../view/manga/mangas.php');
+            } else header('Location: ../view/user/login.html');
         }        
 
     }

@@ -11,7 +11,8 @@
 
             $m = new MyService();
             $m->createUser($name, $email, $password);
-            header('Location: ../view/book/books.php');
+
+            header('Location: ../view/user/login.html');
         }        
 
     }

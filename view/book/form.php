@@ -18,6 +18,7 @@
             <div class="card-body">
                 <form action="../../controller/createbookcontroller.php" method="post">
                     <input type="hidden"name="user_id" value="<?php echo $_SESSION['user_id'] ?>">
+                    <input type="hidden"name="logged" value="<?php echo $_SESSION['logged_in'] ?>">
                     <div class="form-group">
                         <label>Nome:</label>
                         <input class="form-control" type="text" placeholder="Nome do livro" name="name">

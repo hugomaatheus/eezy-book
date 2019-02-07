@@ -48,7 +48,7 @@
                                     <th> <?php echo $line['status']; ?> </th>
                                     <th>                                        
                                         <a class="btn btn-primary raised" href="edit.php?id=<?php echo$line['id'] ?>" >Editar</a>
-                                        <a class="btn btn-primary raised" href="../../controller/deletemangacontroller.php?id=<?php echo $line['id'] ?>" >Deletar</a>
+                                        <a class="btn btn-danger raised" href="../../controller/deletemangacontroller.php?id=<?php echo $line['id'] ?>" >Deletar</a>
                                     </th>
                                 </tr>    
                             <?php } ?>

@@ -11,9 +11,10 @@
             $category = $_POST["category"];
             $markedPage = $_POST["markedPage"];
             $status = $_POST["status"];
+            $logged = $_POST["logged"];
 
             $m = new MyService();
-            if($m->isLoggedIn) {                
+            if($logged) {                
                 $m->createBook($name, $author, $category, $markedPage, $status, $user_id);            
                 header('Location: ../view/book/books.php');
             } else header('Location: ../view/user/login.html');
